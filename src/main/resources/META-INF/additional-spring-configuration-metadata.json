@@ -1,0 +1,39 @@
+{
+    "properties": [
+        {
+            "name": "cqrobot.miao-qi-yu.username",
+            "type": "java.lang.String",
+            "description": "Description for cqrobot.miao-qi-yu.username."
+        },
+        {
+            "name": "cqrobot.miao-qi-yu.password",
+            "type": "java.lang.String",
+            "description": "Description for cqrobot.miao-qi-yu.password."
+        },
+        {
+            "name": "cqrobot.weibo.name",
+            "type": "java.lang.String",
+            "description": "Description for cqrobot.weibo.name."
+        },
+        {
+            "name": "cqrobot.weibo.uid",
+            "type": "java.lang.String",
+            "description": "Description for cqrobot.weibo.uid."
+        },
+        {
+            "name": "cqrobot.groupId",
+            "type": "java.lang.String",
+            "description": "Description for cqrobot.groupId."
+        },
+        {
+            "name": "cqrobot.port",
+            "type": "java.lang.String",
+            "description": "Description for cqrobot.port."
+        },
+        {
+            "name": "cqrobot.url",
+            "type": "java.lang.String",
+            "description": "Description for cqrobot.url."
+        }
+    ]
+}
