@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import top.yzlin.beichen.component.apiquery.MiaoQiYuQuery;
 import top.yzlin.cqrobotsdk.CQRobot;
 
+import java.util.concurrent.Semaphore;
 import java.util.regex.Pattern;
 
 @Component
@@ -32,12 +33,11 @@ public class AsyncRelogin {
     }
 
     @Async
-    void relogin(QiYuRelogin qiYuRelogin){
+    void relogin(QiYuRelogin qiYuRelogin, Semaphore semaphore) throws InterruptedException {
         cqRobot.sendGroupMsg(groupId,"[CQ:image,file=base64://"+miaoQiYuQuery.getVerify()+"]");
-        qiYuRelogin.setVer(null);
-        while(qiYuRelogin.getVer()==null){
-        }
+        semaphore.acquire();
         miaoQiYuQuery.login(qiYuRelogin.getVer());
         cqRobot.sendGroupMsg(groupId,"验证完成，如果无法查询请联系开发者");
+        semaphore.release();
     }
 }

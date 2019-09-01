@@ -34,6 +34,11 @@
             "name": "cqrobot.url",
             "type": "java.lang.String",
             "description": "Description for cqrobot.url."
+        },
+        {
+            "name": "cqrobot.reread-machine.threshold",
+            "type": "java.lang.String",
+            "description": "Description for cqrobot.reread-machine.threshold."
         }
     ]
 }

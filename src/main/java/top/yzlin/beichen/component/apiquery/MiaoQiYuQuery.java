@@ -1,10 +1,9 @@
 package top.yzlin.beichen.component.apiquery;
 
 import com.alibaba.fastjson.JSONObject;
-import io.reactivex.functions.BiConsumer;
+import okhttp3.ResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 import top.yzlin.beichen.component.qiyu.QiYuRelogin;
 import top.yzlin.beichen.entity.QiYu;
@@ -15,12 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Base64;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.function.BiFunction;
-import java.util.function.BooleanSupplier;
-import java.util.function.Consumer;
-import java.util.function.Function;
 
 import static top.yzlin.beichen.httpapi.MiaoQiYuApi.FALSE;
 import static top.yzlin.beichen.httpapi.MiaoQiYuApi.SUCCESS;
@@ -67,7 +61,7 @@ public class MiaoQiYuQuery{
 
     public void login(String vercode){
         try {
-            miaoQiYuApi.login(username,password,vercode).execute();
+            ResponseBody body = miaoQiYuApi.login(username, password, vercode).execute().body();
         } catch (IOException e) {
             e.printStackTrace();
         }
