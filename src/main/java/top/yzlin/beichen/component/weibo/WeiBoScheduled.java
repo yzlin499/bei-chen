@@ -9,7 +9,6 @@ import top.yzlin.beichen.entity.WeiBoInfo;
 import top.yzlin.cqrobotsdk.CQRobot;
 
 import java.util.List;
-import java.util.Optional;
 
 @Component
 public class WeiBoScheduled {
@@ -47,10 +46,10 @@ public class WeiBoScheduled {
                 if (weiBoInfo.getText().indexOf("#剑网3江湖百晓生#")==0) {
                     cqRobot.sendGroupMsg(groupId, weiBoInfo.getText());
                     cqRobot.sendGroupMsg(groupId,"[CQ:image,file="+weiBoInfo.getImg()[0]+"]");
+                    todaySend = false;
                     break;
                 }
             }
-            todaySend=false;
         }
     }
 }

@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import top.yzlin.beichen.component.apiquery.MiaoQiYuQuery;
 import top.yzlin.beichen.entity.QiYu;
@@ -57,7 +56,9 @@ public class QiYuScheduled implements InitializingBean, PersonMsgReply {
         this.miaoQiYuQuery = miaoQiYuQuery;
     }
 
-    @Scheduled(fixedRate = 1000*60)
+
+    //TODO:无法使用的奇遇监控
+//    @Scheduled(fixedRate = 1000*60)
     public void monitoringQiYu(){
         List<QiYu> qiYuData = miaoQiYuQuery.getQiYuData("", "");
         if(qiYuData!=null){
